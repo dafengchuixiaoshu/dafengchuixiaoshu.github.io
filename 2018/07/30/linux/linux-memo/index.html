@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="1. 非root启动80端口 1、首先修改文件所属用户为root： chown root nginx #这一步是必须的。否则即使u+s，也不管用哦。。  2、然后再加上s权限： chmod u+s nginx #添加S位的目的是让程序以root权限起，即使你用的不是root帐号。它也会以root帐号名义起。这时候就绕开端口BIND权限的问题。   3、再次查看权限描述的时候： -rwsr-xr-x">
+<meta name="description" content="1. 非root启动80端口 1、首先修改文件所属用户为root： chown root nginx #这一步是必须的。否则即使u+s，也不管用哦。。  2、然后再加上s权限： chmod u+s nginx #添加S位的目的是让程序以root权限起，即使你用的不是root帐号。它也会以root帐号名义起。这时候就绕开端口BIND权限的问题。  3、再次查看权限描述的时候：   -rwsr-xr-">
 <meta name="keywords" content="备忘">
 <meta property="og:type" content="article">
-<meta property="og:title" content="linux-bak">
+<meta property="og:title" content="linux 备忘">
 <meta property="og:url" content="http://yoursite.com/2018/07/30/linux/linux-memo/index.html">
 <meta property="og:site_name" content="大风吹小树">
-<meta property="og:description" content="1. 非root启动80端口 1、首先修改文件所属用户为root： chown root nginx #这一步是必须的。否则即使u+s，也不管用哦。。  2、然后再加上s权限： chmod u+s nginx #添加S位的目的是让程序以root权限起，即使你用的不是root帐号。它也会以root帐号名义起。这时候就绕开端口BIND权限的问题。   3、再次查看权限描述的时候： -rwsr-xr-x">
+<meta property="og:description" content="1. 非root启动80端口 1、首先修改文件所属用户为root： chown root nginx #这一步是必须的。否则即使u+s，也不管用哦。。  2、然后再加上s权限： chmod u+s nginx #添加S位的目的是让程序以root权限起，即使你用的不是root帐号。它也会以root帐号名义起。这时候就绕开端口BIND权限的问题。  3、再次查看权限描述的时候：   -rwsr-xr-">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-30T09:08:44.000Z">
+<meta property="og:updated_time" content="2018-07-30T09:11:49.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="linux-bak">
-<meta name="twitter:description" content="1. 非root启动80端口 1、首先修改文件所属用户为root： chown root nginx #这一步是必须的。否则即使u+s，也不管用哦。。  2、然后再加上s权限： chmod u+s nginx #添加S位的目的是让程序以root权限起，即使你用的不是root帐号。它也会以root帐号名义起。这时候就绕开端口BIND权限的问题。   3、再次查看权限描述的时候： -rwsr-xr-x">
+<meta name="twitter:title" content="linux 备忘">
+<meta name="twitter:description" content="1. 非root启动80端口 1、首先修改文件所属用户为root： chown root nginx #这一步是必须的。否则即使u+s，也不管用哦。。  2、然后再加上s权限： chmod u+s nginx #添加S位的目的是让程序以root权限起，即使你用的不是root帐号。它也会以root帐号名义起。这时候就绕开端口BIND权限的问题。  3、再次查看权限描述的时候：   -rwsr-xr-">
 
 
 
@@ -126,7 +126,7 @@
 
 
 
-  <title>linux-bak | 大风吹小树</title>
+  <title>linux 备忘 | 大风吹小树</title>
   
 
 
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">linux-bak</h1>
+          <h1 class="post-title" itemprop="name headline">linux 备忘</h1>
         
 
         <div class="post-meta">
@@ -349,10 +349,11 @@
 <li><p>2、然后再加上s权限：</p>
 <pre><code>chmod u+s nginx #添加S位的目的是让程序以root权限起，即使你用的不是root帐号。它也会以root帐号名义起。这时候就绕开端口BIND权限的问题。
 </code></pre></li>
+<li><p>3、再次查看权限描述的时候：</p>
+<p>  -rwsr-xr-x 1 root root 2408122 Sep  5 16:01 nginx</p>
+</li>
 </ul>
-<p>3、再次查看权限描述的时候：</p>
-<pre><code>-rwsr-xr-x 1 root root 2408122 Sep  5 16:01 nginx
-</code></pre><p>这个时候切换到普通用户下再启动就没问题了。</p>
+<p>这个时候切换到普通用户下再启动就没问题了。</p>
 
       
     </div>
