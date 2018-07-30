@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="大风吹小树">
 <meta property="og:description" content="1. 非root启动80端口 1、首先修改文件所属用户为root： chown root nginx #这一步是必须的。否则即使u+s，也不管用哦。。  2、然后再加上s权限： chmod u+s nginx #添加S位的目的是让程序以root权限起，即使你用的不是root帐号。它也会以root帐号名义起。这时候就绕开端口BIND权限的问题。  3、再次查看权限描述的时候：   -rwsr-xr-">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-30T09:11:49.000Z">
+<meta property="og:updated_time" content="2018-07-30T09:29:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux 备忘">
 <meta name="twitter:description" content="1. 非root启动80端口 1、首先修改文件所属用户为root： chown root nginx #这一步是必须的。否则即使u+s，也不管用哦。。  2、然后再加上s权限： chmod u+s nginx #添加S位的目的是让程序以root权限起，即使你用的不是root帐号。它也会以root帐号名义起。这时候就绕开端口BIND权限的问题。  3、再次查看权限描述的时候：   -rwsr-xr-">
@@ -350,11 +350,18 @@
 <pre><code>chmod u+s nginx #添加S位的目的是让程序以root权限起，即使你用的不是root帐号。它也会以root帐号名义起。这时候就绕开端口BIND权限的问题。
 </code></pre></li>
 <li><p>3、再次查看权限描述的时候：</p>
-<p>  -rwsr-xr-x 1 root root 2408122 Sep  5 16:01 nginx</p>
+<p>  -rwsr-xr-x 1 root root 2408122 Sep  5 16:01 nginx #这个时候切换到普通用户下再启动就没问题了。</p>
 </li>
 </ul>
-<p>这个时候切换到普通用户下再启动就没问题了。</p>
-
+<h3 id="2-获取时间-精确到纳秒"><a href="#2-获取时间-精确到纳秒" class="headerlink" title="2. 获取时间-精确到纳秒"></a>2. 获取时间-精确到纳秒</h3><pre><code>date &quot;+%Y-%m-%d %H:%M:%S.%N&quot; #可以结合管道cut,awk来保留几位小数点
+</code></pre><h3 id="3-磁盘占用-du-df"><a href="#3-磁盘占用-du-df" class="headerlink" title="3. 磁盘占用 du/df"></a>3. 磁盘占用 du/df</h3><ul>
+<li>du -h –max-depth=2 | grep “G”</li>
+</ul>
+<h3 id="4-文本操作"><a href="#4-文本操作" class="headerlink" title="4. 文本操作"></a>4. 文本操作</h3><ul>
+<li>awk -F ‘\”user_id\”:’ ‘{print $2}’ | awk -F ‘,’ ‘{print $1}’  | sort | uniq</li>
+<li>find ./ -name “*.cc” | xargs sed -i ‘s/-&gt;ToString/.ToString/g’</li>
+</ul>
+<h3 id="5-mysql文本：mysql-escape-string"><a href="#5-mysql文本：mysql-escape-string" class="headerlink" title="5. mysql文本：mysql_escape_string"></a>5. mysql文本：mysql_escape_string</h3>
       
     </div>
     
@@ -524,7 +531,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-非root启动80端口"><span class="nav-number">1.</span> <span class="nav-text">1. 非root启动80端口</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-非root启动80端口"><span class="nav-number">1.</span> <span class="nav-text">1. 非root启动80端口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-获取时间-精确到纳秒"><span class="nav-number">2.</span> <span class="nav-text">2. 获取时间-精确到纳秒</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-磁盘占用-du-df"><span class="nav-number">3.</span> <span class="nav-text">3. 磁盘占用 du/df</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-文本操作"><span class="nav-number">4.</span> <span class="nav-text">4. 文本操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-mysql文本：mysql-escape-string"><span class="nav-number">5.</span> <span class="nav-text">5. mysql文本：mysql_escape_string</span></a></li></ol></div>
             
 
           </div>
